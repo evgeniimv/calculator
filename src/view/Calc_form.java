@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Calc_form {
+public class Calc_form extends JFrame {
 
 
     Calc calculator;

@@ -18,7 +18,7 @@ enum LexemType{
 
 public class Lexer {
 
-    private Pattern doubleRegExp = Pattern.compile("[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?");
+    private Pattern doubleRegExp = Pattern.compile("[-+]?[0-9]*\\.?[0-9]+");
     private Matcher matcher;
 
     class Lexem
@@ -104,6 +104,8 @@ public class Lexer {
             default:
                 matcher.find();
                 this.currentLexem = new Lexem(LexemType.NUMBER);
+                //присваиваем переменной value модуль соответсвующего числа, распознанное
+                // с использованием шаблона doubleRegExp
                 currentLexem.setValue(Math.abs(Double.parseDouble(matcher.group())));
                 it = matcher.end();
         }
